@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AdvFab Wiki: architecture notes and a privacy-preserving view of real Advanced Fabric evidence.">
+  <title>AdvFab Wiki · Advanced Fabrics</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/wiki/wiki.js" defer></script>
+</head>
+<body class="wiki-page">
+  <header><a class="brand" href="/">Advanced Fabrics</a><nav aria-label="Primary"><a aria-current="page" href="/wiki/">Wiki</a><a href="https://docs.advfab.org">Docs</a><a href="https://spec.advfab.org">Specifications</a><a href="https://github.com/advanced-fabrics">GitHub</a></nav></header>
+  <main>
+    <section class="wiki-hero">
+      <div><p class="eyebrow">ADVFAB WIKI · FIELD EVIDENCE</p><h1>A fabric you can<br>reason about.</h1><p class="lead">Concepts, operational semantics, and a public projection of the evidence inspected in the Advanced Fabric Headlamp plugin.</p></div>
+      <aside class="snapshot-stamp" aria-label="Snapshot provenance"><span class="pulse" aria-hidden="true"></span><p>Sanitized cluster snapshot</p><strong id="snapshot-time">Loading…</strong><small id="cluster-hash">Cluster fingerprint unavailable</small></aside>
+    </section>
+    <section class="wiki-layout">
+      <nav class="wiki-toc" aria-label="Wiki sections"><span>On this page</span><a href="#model">Evidence model</a><a href="#snapshot">Field snapshot</a><a href="#assessments">Path assessments</a><a href="#privacy">Privacy contract</a></nav>
+      <div class="wiki-content">
+        <section id="model" class="wiki-section">
+          <p class="section-index">01 / MODEL</p><h2>Network reality becomes evidence before it becomes a score.</h2><p>Advanced Fabric does not score the network directly. Collectors create versioned measurements; those measurements become scoped evidence; only compatible evidence contributes to an assessment.</p>
+          <div class="flow" aria-label="Evidence processing model"><div><b>Reality</b><span>Routes · peers · probes</span></div><i>→</i><div><b>Measurements</b><span>Versioned definitions</span></div><i>→</i><div><b>Evidence</b><span>Scoped and time-bound</span></div><i>→</i><div><b>O / S / I</b><span>Optimality · stability · impact</span></div></div>
+          <div class="definition-grid"><article><span>O</span><h3>Relative optimality</h3><p>Compare the current path only with feasible alternatives measured in the same scope and window.</p></article><article><span>S</span><h3>Temporal invariance</h3><p>Track variance, loss bursts, BGP churn, and route churn across an explicit window.</p></article><article><span>I</span><h3>Intervention impact</h3><p>Keep observed outcomes separate from assumptions about a proposed or completed change.</p></article></div>
+        </section>
+        <section id="snapshot" class="wiki-section">
+          <p class="section-index">02 / FIELD SNAPSHOT</p><div class="section-heading"><div><h2>What Headlamp can see.</h2><p>This static public projection contains counts and hashed identifiers only. It is not a control surface and cannot query the cluster.</p></div><span class="read-only">READ ONLY</span></div>
+          <div id="metrics" class="metric-grid" aria-live="polite"><p>Loading sanitized evidence…</p></div>
+          <div class="state-panel"><div><h3>Path assessment states</h3><div id="assessment-states" class="bars"></div></div><div><h3>Observation episodes</h3><div id="episode-states" class="bars"></div><p class="note" id="episode-note"></p></div></div>
+        </section>
+        <section id="assessments" class="wiki-section">
+          <p class="section-index">03 / PATH ASSESSMENTS</p><div class="section-heading"><div><h2>Evidence, without topology disclosure.</h2><p>Each row corresponds to a Headlamp-visible assessment. Source names are replaced before publication by stable, domain-separated hashes.</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Private ID</th><th>State</th><th>Node</th><th>Paths</th><th>Evidence</th><th>Observed</th></tr></thead><tbody id="assessment-rows"></tbody></table></div>
+        </section>
+        <section id="privacy" class="wiki-section privacy-panel">
+          <p class="section-index">04 / PRIVACY CONTRACT</p><h2>Public by derivation, not by redaction.</h2>
+          <div class="privacy-grid"><div><h3>Published</h3><ul><li>Aggregate resource and state counts</li><li>Readiness booleans and evidence counts</li><li>Observation timestamps</li><li>12-character SHA-256 fingerprints</li></ul></div><div><h3>Never published</h3><ul><li>Node, peer, namespace, or resource names</li><li>IP addresses, prefixes, interfaces, or AS paths</li><li>UIDs, resource versions, labels, or annotations</li><li>Secrets, credentials, logs, or Kubernetes object bodies</li></ul></div></div>
+          <p class="hash-explainer"><b>Hash construction:</b> <code>SHA-256("advfab.org/public-v1\0" + identifier)[0:12]</code>. Domain separation prevents these fingerprints from matching hashes made for another publication. Short hashes are pseudonyms, not anonymity; low-entropy identifiers are therefore omitted rather than hashed.</p>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer><span>Apache-2.0</span><span>Public evidence · no live cluster access</span><span><a href="/">advfab.org</a></span></footer>
+</body>
+</html>
