@@ -1,0 +1,46 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  boundaries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enforce public snapshot boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          snapshot=wiki/data/cluster-snapshot.json
+          test -f "$snapshot"
+          ! grep -E '(10\.|192\.168\.|172\.(1[6-9]|2[0-9]|3[01])\.|223\.159\.|resourceVersion|"uid"|"namespace"|"peer"|"prefix"|"interface"|"asPath")' "$snapshot"
+
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate static assets and snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check wiki/wiki.js
+          node <<'NODE'
+          const fs = require('node:fs');
+          const data = JSON.parse(fs.readFileSync('wiki/data/cluster-snapshot.json', 'utf8'));
+          const assessmentStates = Object.values(data.stateDistribution.pathAssessments).reduce((a, b) => a + b, 0);
+          if (data.privacy.method !== 'SHA-256' || data.privacy.rawIdentifiersPublished !== false) throw new Error('invalid privacy contract');
+          if (data.pathAssessments.length !== data.totals.pathAssessments) throw new Error('assessment count mismatch');
+          if (assessmentStates !== data.totals.pathAssessments) throw new Error('state count mismatch');
+          if (data.pathAssessments.some(item => !/^[0-9a-f]{12}$/.test(item.id))) throw new Error('invalid public fingerprint');
+          NODE
+          test -s index.html
+          test -s wiki/index.html
