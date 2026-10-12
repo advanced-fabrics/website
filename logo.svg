@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" role="img" aria-label="Advanced Fabrics">
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="13">
+    <path stroke="#7a4dff" d="M110 20H92C80 20 74 34 60 50C46 66 40 80 28 80H10"/>
+    <path stroke="#22d8ff" d="M10 20H28C40 20 46 34 60 50C74 66 80 80 92 80H110"/>
+    <circle cx="60" cy="50" r="11" stroke="#22d8ff" stroke-width="9"/>
+  </g>
+</svg>

@@ -4,17 +4,69 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Advanced Fabrics is an API-first framework for observable and programmable cloud-native network fabrics.">
-  <title>Advanced Fabrics</title>
+  <meta name="theme-color" content="#060914">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Advanced Fabrics">
+  <meta property="og:title" content="Advanced Fabrics — networks you can observe, compose and replace">
+  <meta property="og:description" content="Portable APIs for topology, routing, evidence, policy and controlled change in cloud-native network fabrics.">
+  <meta property="og:url" content="https://advfab.org/">
+  <meta name="twitter:card" content="summary">
+  <title>Advanced Fabrics · Observable cloud-native network fabrics</title>
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header><a class="brand" href="/">Advanced Fabrics</a><nav><a href="/wiki/">Wiki</a><a href="https://docs.advfab.org">Docs</a><a href="https://spec.advfab.org">Specifications</a><a href="https://github.com/advanced-fabrics">GitHub</a></nav></header>
+  <header><div class="bar"><a class="brand" href="/"><img src="/logo.svg" alt="" width="34" height="28">Advanced Fabrics</a><nav aria-label="Primary"><a href="/wiki/">Wiki</a><a href="https://docs.advfab.org">Docs</a><a href="https://spec.advfab.org">Specifications</a><a class="gh" href="https://github.com/advanced-fabrics">GitHub</a></nav></div></header>
   <main>
-    <section class="hero"><p class="eyebrow">ADVFAB · CLOUD-NATIVE NETWORK FABRICS</p><h1>Networks you can observe, compose and replace.</h1><p class="lead">Advanced Fabrics defines portable APIs for topology, routing, evidence, policy and controlled change—without locking the control plane to one CNI, router or metrics backend.</p><div class="actions"><a class="primary" href="https://docs.advfab.org/quick-start/">Quick Start</a><a href="https://github.com/advanced-fabrics/core">Explore the code</a></div></section>
-    <section class="grid"><article><h2>API-first</h2><p>CRDs, OpenAPI and provider protocols are versioned independently from implementation details.</p></article><article><h2>Observe first</h2><p>Missing evidence stays unknown. Mutation requires capability, policy, RBAC and identity authorization.</p></article><article><h2>Replaceable providers</h2><p>The reference runtime uses Kubernetes, Cilium and FRR, while the core contract remains provider-neutral.</p></article></section>
-    <section class="callout"><h2>A real fabric, published safely</h2><p>The AdvFab Wiki turns the same evidence surfaces used by the Headlamp plugin into a public, privacy-preserving cluster snapshot. Infrastructure identifiers are domain-separated and SHA-256 hashed before publication.</p><a href="/wiki/">Open the AdvFab Wiki →</a></section>
-    <section class="callout"><h2>Built in public</h2><p>AFEPs record standards decisions. Conformance claims bind to immutable artifacts. Releases include signatures, provenance and SBOMs.</p><a href="https://github.com/advanced-fabrics/community">Governance and roadmap →</a></section>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Cloud-native network fabrics</p>
+        <h1>Networks you can <em>observe, compose</em> and replace.</h1>
+        <p class="lead">Advanced Fabrics defines portable APIs for topology, routing, evidence, policy and controlled change—without locking the control plane to one CNI, router or metrics backend.</p>
+        <div class="actions"><a class="primary" href="https://docs.advfab.org/quick-start/">Quick Start</a><a href="https://github.com/advanced-fabrics/core">Explore the code</a></div>
+        <div class="tags" aria-label="Reference runtime"><span>Kubernetes</span><span>Cilium</span><span>FRR</span><span>Apache-2.0</span></div>
+      </div>
+      <aside class="readout" aria-label="Illustrative evidence readout">
+        <div class="readout-head"><i></i><i></i><i></i><span>evidence · read-only</span></div>
+        <div class="readout-body">
+          <div class="row"><b>Path assessment</b><span class="state state-ready">ready</span><small>Scoped evidence, compatible window</small></div>
+          <div class="row"><b>Route stability</b><span class="state state-partial">partial</span><small>Some collectors reporting</small></div>
+          <div class="row unknown"><b>Intervention impact</b><span class="state">unknown</span><small>No evidence. Never guessed.</small></div>
+        </div>
+        <p class="readout-foot">Illustrative. Missing evidence stays unknown; a change needs capability, policy, RBAC and identity authorization.</p>
+      </aside>
+    </section>
+
+    <section class="block" id="principles">
+      <div class="section-head"><p class="eyebrow">Principles</p><h2>A contract first, a runtime second.</h2><p>The standard stays small and portable. Implementations compete underneath it.</p></div>
+      <div class="grid">
+        <article><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></div><h2>API-first</h2><p>CRDs, OpenAPI and provider protocols are versioned independently from implementation details.</p></article>
+        <article><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div><h2>Observe first</h2><p>Missing evidence stays unknown. Mutation requires capability, policy, RBAC and identity authorization.</p></article>
+        <article><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></div><h2>Replaceable providers</h2><p>The reference runtime uses Kubernetes, Cilium and FRR, while the core contract remains provider-neutral.</p></article>
+      </div>
+    </section>
+
+    <section class="block" id="architecture">
+      <div class="section-head"><p class="eyebrow">Architecture</p><h2>From raw signals to authorized change.</h2><p>Each layer only depends on the contract below it, so any provider can be swapped.</p></div>
+      <div class="stack">
+        <div class="layer"><b>Change</b><span>Controlled, policy-gated mutation with identity and RBAC checks.</span></div>
+        <div class="layer"><b>Assessment</b><span>Optimality, stability and intervention impact scored from compatible evidence only.</span></div>
+        <div class="layer"><b>Evidence</b><span>Versioned measurements, scoped and time-bound. Gaps are explicit.</span></div>
+        <div class="layer base"><b>Providers</b><span>Kubernetes, Cilium, FRR or your own, behind provider protocols.</span></div>
+      </div>
+    </section>
+
+    <div class="callouts">
+      <section class="callout"><h2>A real fabric, published safely</h2><p>The AdvFab Wiki turns the same evidence surfaces used by the Headlamp plugin into a public, privacy-preserving cluster snapshot. Infrastructure identifiers are domain-separated and SHA-256 hashed before publication.</p><a href="/wiki/">Open the AdvFab Wiki →</a></section>
+      <section class="callout"><h2>Built in public</h2><p>AFEPs record standards decisions. Conformance claims bind to immutable artifacts. Releases include signatures, provenance and SBOMs.</p><a href="https://github.com/advanced-fabrics/community">Governance and roadmap →</a></section>
+    </div>
+
+    <section class="cta">
+      <h2>Try it on your own cluster.</h2>
+      <p>Follow the quick start, read the specifications, or open an issue. Contributions and AFEPs are welcome.</p>
+      <div class="actions"><a class="primary" href="https://docs.advfab.org/quick-start/">Quick Start</a><a href="https://spec.advfab.org">Read the specs</a></div>
+    </section>
   </main>
-  <footer><span>Apache-2.0</span><span>Initiated by RE8CH · independently governed</span><span>Not a CNCF project</span></footer>
+  <footer><span>Apache-2.0 · Initiated by RE8CH · independently governed · not a CNCF project</span><div class="links"><a href="/wiki/">Wiki</a><a href="https://docs.advfab.org">Docs</a><a href="https://spec.advfab.org">Specs</a><a href="https://github.com/advanced-fabrics">GitHub</a><a href="mailto:security@advfab.org">Security</a></div></footer>
 </body>
 </html>
