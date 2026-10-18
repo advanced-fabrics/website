@@ -43,4 +43,6 @@ jobs:
           if (data.pathAssessments.some(item => !/^[0-9a-f]{12}$/.test(item.id))) throw new Error('invalid public fingerprint');
           NODE
           test -s index.html
+          test -s en/index.html
+          test -s zh-CN/index.html
           test -s wiki/index.html
