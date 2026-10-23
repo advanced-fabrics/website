@@ -1,16 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-site="advfab">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="AdvFab Wiki: architecture notes and a privacy-preserving view of real Advanced Fabric evidence.">
   <title>AdvFab Wiki · Advanced Fabrics</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="canonical" href="https://advfab.org/wiki/">
+  <link rel="icon" type="image/svg+xml" href="/mark.svg">
+  <link rel="stylesheet" href="/styles.css?v=20261023-oss-1">
+  <link rel="stylesheet" href="https://brand-assets.re8ch.com/dist/current/re8ch-navigator.css">
+  <link rel="stylesheet" href="https://brand-assets.re8ch.com/dist/current/re8ch-footer.css">
+  <script src="/boot.js?v=20261023-oss-1"></script>
+  <script src="https://brand-assets.re8ch.com/dist/current/re8ch-navigator.js" defer></script>
+  <script src="https://brand-assets.re8ch.com/dist/current/re8ch-footer.js" defer></script>
+  <script src="/site.js?v=20261023-oss-1" defer></script>
   <script src="/wiki/wiki.js" defer></script>
 </head>
 <body class="wiki-page">
-  <header><a class="brand" href="/">Advanced Fabrics</a><nav aria-label="Primary"><a aria-current="page" href="/wiki/">Wiki</a><a href="https://docs.advfab.org">Docs</a><a href="https://spec.advfab.org">Specifications</a><a href="https://github.com/advanced-fabrics">GitHub</a></nav></header>
-  <main>
+  <div class="shell">
+  <re8ch-navigator product="advfab" brand="AdvFab" locale="en" home-href="/" links='[{"label":"Model","href":"#model"},{"label":"Snapshot","href":"#snapshot"},{"label":"Assessments","href":"#assessments"},{"label":"Privacy","href":"#privacy"}]' language-options='[{"label":"English","value":"en","href":"/wiki/"}]' language-mode="available" extra-actions='[]'></re8ch-navigator>
+  <main class="wrap">
     <section class="wiki-hero">
       <div><p class="eyebrow">ADVFAB WIKI · FIELD EVIDENCE</p><h1>A fabric you can<br>reason about.</h1><p class="lead">Concepts, operational semantics, and a public projection of the evidence inspected in the Advanced Fabric Headlamp plugin.</p></div>
       <aside class="snapshot-stamp" aria-label="Snapshot provenance"><span class="pulse" aria-hidden="true"></span><p>Sanitized cluster snapshot</p><strong id="snapshot-time">Loading…</strong><small id="cluster-hash">Cluster fingerprint unavailable</small></aside>
@@ -40,6 +49,7 @@
       </div>
     </section>
   </main>
-  <footer><span>Apache-2.0</span><span>Public evidence · no live cluster access</span><span><a href="/">advfab.org</a></span></footer>
+  <re8ch-footer locale="en" theme="light" language-options='[{"label":"English","value":"en","href":"/wiki/"}]' language-mode="available" brand-logo="https://brand-assets.re8ch.com/SVG/logo.svg"></re8ch-footer>
+  </div>
 </body>
 </html>

@@ -32,7 +32,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          node --check wiki/wiki.js
+          for file in wiki/wiki.js boot.js site.js fabric.js; do node --check "$file"; done
           node <<'NODE'
           const fs = require('node:fs');
           const data = JSON.parse(fs.readFileSync('wiki/data/cluster-snapshot.json', 'utf8'));
