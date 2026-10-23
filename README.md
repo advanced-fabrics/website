@@ -3,6 +3,12 @@
 Static, dependency-free source for the Advanced Fabrics project website. Cloudflare Pages publishes this repository with `/` as the output directory and no build command.
 Source for advfab.org
 
+The pages share one light design system with the Public Edge and Among Clusters
+sites (`styles.css`, `boot.js`, `site.js`) and load the RE8CH navigator and
+footer web components from `brand-assets.re8ch.com`, which `_headers` allows in
+the CSP. `fabric.js` draws the home-page evidence fabric from
+`wiki/data/cluster-snapshot.json`.
+
 ## Public AdvFab snapshot
 
 `/wiki/` is a read-only public projection of the evidence surfaces used by the

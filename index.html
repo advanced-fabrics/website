@@ -1,21 +1,113 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Advanced Fabrics is an API-first framework for observable and programmable cloud-native network fabrics.">
-  <title>AdvFab — Programmable cloud-native network fabrics</title>
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-  <header><a class="brand" href="/">AdvFab</a><nav><a href="/wiki/">Wiki</a><a href="https://docs.advfab.org">Docs</a><a href="https://spec.advfab.org">Specifications</a><a href="https://github.com/orgs/advanced-fabrics/projects">Roadmap</a><a href="/zh-CN/" lang="zh-CN">中文</a></nav></header>
-  <main>
-    <section class="hero"><p class="eyebrow">ADVFAB · CLOUD-NATIVE NETWORK FABRICS</p><h1>Networks you can observe, compose and replace.</h1><p class="lead">AdvFab defines portable APIs for topology, routing, evidence, policy and controlled change—without locking the control plane to one CNI, router or metrics backend.</p><div class="actions"><a class="primary" href="https://docs.advfab.org/quick-start/">Quick Start</a><a href="https://github.com/advanced-fabrics/core">Explore the code</a></div></section>
-    <section class="grid"><article><h2>API-first</h2><p>CRDs, OpenAPI and provider protocols are versioned independently from implementation details.</p></article><article><h2>Observe first</h2><p>Missing evidence stays unknown. Mutation requires capability, policy, RBAC and identity authorization.</p></article><article><h2>Replaceable providers</h2><p>The reference runtime uses Kubernetes, Cilium and FRR, while the core contract remains provider-neutral.</p></article></section>
-    <section class="callout"><h2>A real fabric, published safely</h2><p>The AdvFab Wiki turns the same evidence surfaces used by the Headlamp plugin into a public, privacy-preserving cluster snapshot. Infrastructure identifiers are domain-separated and SHA-256 hashed before publication.</p><a href="/wiki/">Open the AdvFab Wiki →</a></section>
-    <section class="callout"><h2>Built in public</h2><p>AFEPs record standards decisions. Conformance claims bind to immutable artifacts. Releases include signatures, provenance and SBOMs.</p><a href="https://github.com/advanced-fabrics/community">Governance and roadmap →</a></section>
-    <section class="callout"><h2>Roadmap by outcomes</h2><p>Product, documentation, website, release and reliability initiatives are reviewed in public. Weekly pulses and monthly reviews keep priorities current without publishing private infrastructure or raw telemetry.</p><a href="https://github.com/orgs/advanced-fabrics/projects">Follow the AdvFab roadmap →</a></section>
-  </main>
-  <footer><span>Apache-2.0</span><span>AdvFab · independently governed</span><span>Not a CNCF project</span></footer>
-</body>
+<html lang="en" data-site="advfab">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdvFab — Network evidence for Kubernetes</title>
+    <meta name="description" content="AdvFab is an observe-first, provider-neutral network evidence controller for Kubernetes. Missing evidence stays unknown.">
+    <meta name="theme-color" content="#f7f9fc">
+    <meta property="og:title" content="AdvFab — Network evidence for Kubernetes">
+    <meta property="og:description" content="AdvFab is an observe-first, provider-neutral network evidence controller for Kubernetes. Missing evidence stays unknown.">
+    <meta property="og:url" content="https://advfab.org/">
+    <link rel="canonical" href="https://advfab.org/">
+    <link rel="alternate" hreflang="en" href="https://advfab.org/">
+    <link rel="alternate" hreflang="zh-CN" href="https://advfab.org/zh-CN/">
+    <link rel="alternate" hreflang="x-default" href="https://advfab.org/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://advfab.org/sitemap.xml">
+    <link rel="icon" type="image/svg+xml" href="/mark.svg">
+    <link rel="stylesheet" href="/styles.css?v=20261023-oss-1">
+    <link rel="stylesheet" href="https://brand-assets.re8ch.com/dist/current/re8ch-navigator.css">
+    <link rel="stylesheet" href="https://brand-assets.re8ch.com/dist/current/re8ch-footer.css">
+    <script src="/boot.js?v=20261023-oss-1"></script>
+    <script src="https://brand-assets.re8ch.com/dist/current/re8ch-navigator.js" defer></script>
+    <script src="https://brand-assets.re8ch.com/dist/current/re8ch-footer.js" defer></script>
+    <script src="/site.js?v=20261023-oss-1" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+    <re8ch-navigator product="advfab" brand="AdvFab" locale="en" home-href="/" links='[{"label":"Evidence","href":"/#evidence"},{"label":"Questions","href":"/#questions"},{"label":"Boundaries","href":"/#boundaries"},{"label":"Install","href":"/#install"},{"label":"Wiki","href":"/wiki/"}]' language-options='[{"label":"English","value":"en","href":"/"},{"label":"简体中文","value":"zh-CN","href":"/zh-CN/"}]' language-mode="available" extra-actions='[]'></re8ch-navigator>
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">AdvFab <span class="tag">Open source · Apache-2.0</span></p>
+            <h1>Network evidence you can reason about.</h1>
+            <p class="lead">AdvFab is an observe-first, provider-neutral network evidence controller for Kubernetes. It turns Linux, Cilium, FRR, DNS, Gateway API and declared topology facts into versioned observations, and never makes missing evidence look healthy.</p>
+            <div class="actions"><a class="button primary" href="https://docs.advfab.org/quick-start/" rel="noopener">Quick start</a><a class="button" href="https://github.com/advanced-fabrics/core" rel="noopener">Explore the code</a></div>
+            <div class="stats"><div><span>Path assessments</span><strong data-stat="assessments">15</strong></div><div><span>Ready nodes</span><strong data-stat="nodes">13/15</strong></div><div><span>Trade-off triangles</span><strong data-stat="triangles">3</strong></div><div><span>Observation episodes</span><strong data-stat="episodes">200+</strong></div></div>
+          </div>
+          <div class="figure" id="evidence" data-fabric data-snapshot="/wiki/data/cluster-snapshot.json">
+            <div class="figure-head"><b>Evidence fabric</b><small>Select a link, then toggle the apply gates.</small></div>
+            <div class="figure-body"><svg viewBox="0 0 600 366" role="group" aria-label="Evidence fabric"></svg></div>
+            <div class="figure-foot">
+              <div class="legend" data-fabric-legend></div>
+              <div class="figure-split"><dl class="kv" data-fabric-info></dl><div class="chips" data-fabric-gates aria-label="Guarded apply gates"></div></div>
+              <div class="verdict" data-fabric-verdict aria-live="polite"></div>
+              <small class="fig-note"><span data-fabric-stamp></span> Illustrative topology. Link states come from the public, hashed snapshot.</small>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="questions">
+        <div class="wrap">
+          <div class="section-head"><p class="eyebrow">What it answers</p><h2>Four questions, answered with evidence.</h2><p>Collectors create versioned measurements, measurements become scoped evidence, and only compatible evidence contributes to an assessment.</p></div>
+          <div class="rows">
+            <article class="row"><span class="idx">01</span><h3>Reachability</h3><div class="row-text"><p class="q">Which network paths are currently reachable and fresh?</p><p>NetworkPathAssessment resources carry state, scope and observation time.</p></div><span></span></article>
+            <article class="row"><span class="idx">02</span><h3>Provenance</h3><div class="row-text"><p class="q">What evidence supports a routing or placement decision?</p><p>Every assessment references the measurements it was derived from.</p></div><span></span></article>
+            <article class="row"><span class="idx">03</span><h3>Uncertainty</h3><div class="row-text"><p class="q">Which dimensions are unknown, stale, partial or contradictory?</p><p>Missing evidence is reported as unknown. It is never filled in as healthy.</p></div><span></span></article>
+            <article class="row"><span class="idx">04</span><h3>Impact</h3><div class="row-text"><p class="q">Did a separately authorized change improve the same measured scope?</p><p>The O / S / I model keeps observed outcomes apart from assumptions about a change.</p></div><span></span></article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="boundaries">
+        <div class="wrap">
+          <div class="section-head"><p class="eyebrow">Stable boundaries</p><h2>It owns evidence. Everything else keeps its authority.</h2><p>Consumers use CRDs and the advertised Observation API. They never read internal ConfigMaps or depend on a release name, namespace or UI.</p></div>
+          <div class="split"><div class="panel"><h3>AdvFab owns</h3><ul><li><b>Measurement definitions</b> · symbols, units, scopes, windows and uncertainty</li><li><b>Bounded collection</b> · from Linux, Cilium, FRR, DNS and Gateway API</li><li><b>Observation resources</b> · versioned CRDs under networking.advfab.org</li><li><b>Guarded apply</b> · only when explicitly authorized</li></ul></div><div class="panel other"><h3>Stays with its owner</h3><ul><li><b>Kubernetes, Cilium, FRR</b> · their own lifecycle and authority</li><li><b>Routers and DNS providers</b> · configuration is never taken over</li><li><b>Telemetry storage</b> · any metrics backend</li><li><b>Headlamp client</b> · installed and released independently</li></ul></div></div>
+        </div>
+      </section>
+      <section class="section" id="install">
+        <div class="wrap install">
+          <div>
+            <div class="section-head"><p class="eyebrow">Install</p><h2>Public defaults are disabled.</h2><p>The chart ships with no private inventory or credentials. Observation is enabled with a reviewed values file; mutation stays off.</p></div>
+            <ol class="steps"><li>Install the signed OCI chart into its own namespace.</li><li>Enable observation with a reviewed values file (applyEnabled: false).</li><li>Read the assessments with kubectl or the Headlamp plugin.</li></ol>
+            <div class="actions"><a class="button" href="https://docs.advfab.org" rel="noopener">Read the docs →</a></div>
+          </div>
+          <div class="code">
+            <div class="code-head"><span>install.sh</span><button class="copy" type="button" data-copy-target="code-advfab" data-copied="Copied">Copy</button></div>
+            <pre id="code-advfab"><span class="c"># Install (observation disabled by default)</span>
+helm upgrade --install advanced-fabric \
+  oci://ghcr.io/advanced-fabrics/charts/advanced-fabric \
+  --version 1.0.0-rc.14 \
+  --namespace advanced-fabric --create-namespace \
+  --values my-values.yaml
+
+<span class="c"># Inspect the evidence</span>
+kubectl get advancedfabrics.networking.advfab.org
+kubectl get networkpathassessments.networking.advfab.org</pre>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="family">
+        <div class="wrap">
+          <div class="section-head"><p class="eyebrow">Open-source cloud family</p><h2>Three contracts that compose.</h2><p>AdvFab produces path evidence, Public Edge consumes it to answer DNS, and Among Clusters connects clusters without sharing their keys. RE8CH Cloud runs all three as a managed service.</p></div>
+          <div class="family">
+            <a href="https://advfab.org/" aria-current="page"><span class="fam-mark"><img src="/marks/advfab.svg" alt="" width="26" height="26"><b>AdvFab</b></span><p>Network evidence controller for Kubernetes.</p><small>Open source</small></a>
+            <a href="https://public-edge.github.io/website/en/"><span class="fam-mark"><img src="/marks/public-edge.svg" alt="" width="26" height="26"><b>Public Edge</b></span><p>Health-aware public ingress and authoritative DNS.</p><small>Open source</small></a>
+            <a href="https://among-clusters.github.io/website/en/"><span class="fam-mark"><img src="/marks/among-clusters.svg" alt="" width="26" height="26"><b>Among Clusters</b></span><p>Sovereign cluster peering for BYOC services.</p><small>Open source</small></a>
+            <a href="https://cluster.re8ch.com/en/"><span class="fam-mark"><img src="https://brand-assets.re8ch.com/PRODUCTS/cluster/SVG/icon-no-edge.svg" alt="" width="26" height="26"><b>RE8CH Cloud</b></span><p>The managed cluster network built on these projects.</p><small>Managed</small></a>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap closing">
+          <div class="section-head"><h2>Built in public.</h2><p>AFEPs record standards decisions. Conformance claims bind to immutable artifacts. Releases include signatures, provenance and SBOMs. AdvFab is independently governed and is not a CNCF project.</p></div>
+          <div class="actions"><a class="button primary" href="/wiki/">Open the Wiki</a><a class="button" href="https://github.com/advanced-fabrics/community" rel="noopener">Governance</a><a class="button" href="https://github.com/orgs/advanced-fabrics/projects" rel="noopener">Roadmap</a></div>
+        </div>
+      </section>
+    </main>
+    <re8ch-footer locale="en" theme="light" language-options='[{"label":"English","value":"en","href":"/"},{"label":"简体中文","value":"zh-CN","href":"/zh-CN/"}]' language-mode="available" brand-logo="https://brand-assets.re8ch.com/SVG/logo.svg"></re8ch-footer>
+    </div>
+    <script type="application/json" id="site-copy">{"tierSpine":"Spine","tierLeaf":"Leaf","tierNode":"Nodes","states":{"ready":"Ready","partial":"Partial","stale":"Stale","unknown":"Unknown"},"linkLabel":"Path {id}, {state}","stamp":"Public snapshot · {time}","fields":{"id":"Fingerprint","state":"State","node":"Node","evidence":"Path evidence / refs","observed":"Observed"},"ready":"Ready","notReady":"Not ready","none":"—","gates":["Capability","Policy","RBAC","Identity"],"joiner":", ","verdict":{"observeTitle":"Observe only","observe":"This path is {state}. AdvFab keeps it that way instead of scoring it; guarded apply needs fresh, complete evidence for the same scope.","blockedTitle":"Guarded apply blocked","blocked":"Installation alone never authorizes change. Missing: {missing}.","okTitle":"Guarded apply authorized","ok":"Capability, policy, RBAC and identity all agree. The outcome is measured against the same scope afterwards."}}</script>
+    <script src="/fabric.js?v=20261023-oss-1" defer></script>
+  </body>
 </html>

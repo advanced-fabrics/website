@@ -1,13 +1,113 @@
 <!doctype html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="AdvFab 是面向可观察、可编程云原生网络 Fabric 的 API-first 框架。"><title>AdvFab — 可编程云原生网络 Fabric</title><link rel="stylesheet" href="../styles.css"></head>
-<body>
-  <header><a class="brand" href="/zh-CN/">AdvFab</a><nav><a href="/wiki/">Wiki</a><a href="https://docs.advfab.org">文档</a><a href="https://spec.advfab.org">规范</a><a href="https://github.com/orgs/advanced-fabrics/projects">路线图</a><a href="/" lang="en">English</a></nav></header>
-  <main>
-    <section class="hero"><p class="eyebrow">ADVFAB · 云原生网络 FABRIC</p><h1>可观察、可组合、可替换的网络。</h1><p class="lead">AdvFab 为拓扑、路由、证据、策略与受控变更定义可移植 API，不把控制面锁定到单一 CNI、路由器或指标后端。</p><div class="actions"><a class="primary" href="https://docs.advfab.org/quick-start/">快速开始</a><a href="https://github.com/advanced-fabrics/core">查看代码</a></div></section>
-    <section class="grid"><article><h2>API 优先</h2><p>CRD、OpenAPI 和 Provider 协议独立于实现细节进行版本化。</p></article><article><h2>先观察再变更</h2><p>缺失证据保持未知；执行变更需要能力、策略、RBAC 与身份同时授权。</p></article><article><h2>可替换 Provider</h2><p>参考运行时使用 Kubernetes、Cilium 和 FRR，同时保持核心合约供应商中立。</p></article></section>
-    <section class="callout"><h2>安全地公开真实 Fabric</h2><p>AdvFab Wiki 将 Headlamp 所使用的证据界面转化为保护隐私的公开快照；基础设施标识在发布前进行域隔离哈希。</p><a href="/wiki/">打开 AdvFab Wiki →</a></section>
-    <section class="callout"><h2>以成果维护公开路线图</h2><p>公开跟进产品、文档、官网、发布与可靠性议题，并通过每周进展和月度复盘持续调整优先级。</p><a href="https://github.com/orgs/advanced-fabrics/projects">查看 AdvFab 路线图 →</a></section>
-  </main>
-  <footer><span>Apache-2.0</span><span>AdvFab · 独立治理</span><span>非 CNCF 项目</span></footer>
-</body></html>
+<html lang="zh-CN" data-site="advfab">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdvFab — Kubernetes 网络证据</title>
+    <meta name="description" content="AdvFab 是先观察、供应商中立的 Kubernetes 网络证据控制器。缺失的证据保持未知。">
+    <meta name="theme-color" content="#f7f9fc">
+    <meta property="og:title" content="AdvFab — Kubernetes 网络证据">
+    <meta property="og:description" content="AdvFab 是先观察、供应商中立的 Kubernetes 网络证据控制器。缺失的证据保持未知。">
+    <meta property="og:url" content="https://advfab.org/zh-CN/">
+    <link rel="canonical" href="https://advfab.org/zh-CN/">
+    <link rel="alternate" hreflang="en" href="https://advfab.org/">
+    <link rel="alternate" hreflang="zh-CN" href="https://advfab.org/zh-CN/">
+    <link rel="alternate" hreflang="x-default" href="https://advfab.org/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://advfab.org/sitemap.xml">
+    <link rel="icon" type="image/svg+xml" href="/mark.svg">
+    <link rel="stylesheet" href="/styles.css?v=20261023-oss-1">
+    <link rel="stylesheet" href="https://brand-assets.re8ch.com/dist/current/re8ch-navigator.css">
+    <link rel="stylesheet" href="https://brand-assets.re8ch.com/dist/current/re8ch-footer.css">
+    <script src="/boot.js?v=20261023-oss-1"></script>
+    <script src="https://brand-assets.re8ch.com/dist/current/re8ch-navigator.js" defer></script>
+    <script src="https://brand-assets.re8ch.com/dist/current/re8ch-footer.js" defer></script>
+    <script src="/site.js?v=20261023-oss-1" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+    <re8ch-navigator product="advfab" brand="AdvFab" locale="zh-CN" home-href="/zh-CN/" links='[{"label":"证据","href":"/zh-CN/#evidence"},{"label":"问题","href":"/zh-CN/#questions"},{"label":"边界","href":"/zh-CN/#boundaries"},{"label":"安装","href":"/zh-CN/#install"},{"label":"Wiki","href":"/wiki/"}]' language-options='[{"label":"English","value":"en","href":"/"},{"label":"简体中文","value":"zh-CN","href":"/zh-CN/"}]' language-mode="available" extra-actions='[]'></re8ch-navigator>
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">AdvFab <span class="tag">开源 · Apache-2.0</span></p>
+            <h1>可以推理的网络证据。</h1>
+            <p class="lead">AdvFab 是先观察、供应商中立的 Kubernetes 网络证据控制器。它把 Linux、Cilium、FRR、DNS、Gateway API 与声明的拓扑事实转化为版本化的观测资源，从不把缺失的证据显示成健康。</p>
+            <div class="actions"><a class="button primary" href="https://docs.advfab.org/quick-start/" rel="noopener">快速开始</a><a class="button" href="https://github.com/advanced-fabrics/core" rel="noopener">查看代码</a></div>
+            <div class="stats"><div><span>路径评估</span><strong data-stat="assessments">15</strong></div><div><span>就绪节点</span><strong data-stat="nodes">13/15</strong></div><div><span>权衡三角</span><strong data-stat="triangles">3</strong></div><div><span>观测片段</span><strong data-stat="episodes">200+</strong></div></div>
+          </div>
+          <div class="figure" id="evidence" data-fabric data-snapshot="/wiki/data/cluster-snapshot.json">
+            <div class="figure-head"><b>证据 Fabric</b><small>选择一条链路，再切换变更门禁。</small></div>
+            <div class="figure-body"><svg viewBox="0 0 600 366" role="group" aria-label="证据 Fabric"></svg></div>
+            <div class="figure-foot">
+              <div class="legend" data-fabric-legend></div>
+              <div class="figure-split"><dl class="kv" data-fabric-info></dl><div class="chips" data-fabric-gates aria-label="Guarded apply gates"></div></div>
+              <div class="verdict" data-fabric-verdict aria-live="polite"></div>
+              <small class="fig-note"><span data-fabric-stamp></span> 示意拓扑。链路状态来自公开的哈希快照。</small>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="questions">
+        <div class="wrap">
+          <div class="section-head"><p class="eyebrow">回答什么</p><h2>四个问题，都用证据回答。</h2><p>采集器产生版本化的测量，测量成为有范围的证据，只有兼容的证据才参与评估。</p></div>
+          <div class="rows">
+            <article class="row"><span class="idx">01</span><h3>可达性</h3><div class="row-text"><p class="q">哪些网络路径当前可达且新鲜？</p><p>NetworkPathAssessment 资源记录状态、范围与观测时间。</p></div><span></span></article>
+            <article class="row"><span class="idx">02</span><h3>来源</h3><div class="row-text"><p class="q">哪些证据支撑一次路由或调度决策？</p><p>每个评估都引用它所依据的测量。</p></div><span></span></article>
+            <article class="row"><span class="idx">03</span><h3>不确定性</h3><div class="row-text"><p class="q">哪些维度未知、过期、不完整或互相矛盾？</p><p>缺失的证据报告为未知，绝不被补成健康。</p></div><span></span></article>
+            <article class="row"><span class="idx">04</span><h3>影响</h3><div class="row-text"><p class="q">一次单独授权的变更，是否改善了同一测量范围？</p><p>O / S / I 模型把观测到的结果与对变更的假设分开。</p></div><span></span></article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="boundaries">
+        <div class="wrap">
+          <div class="section-head"><p class="eyebrow">稳定边界</p><h2>它只负责证据，其他组件保留各自权威。</h2><p>消费者使用 CRD 和公开的 Observation API，不读取内部 ConfigMap，也不依赖 release 名称、命名空间或 UI。</p></div>
+          <div class="split"><div class="panel"><h3>AdvFab 负责</h3><ul><li><b>测量定义</b> · 符号、单位、范围、窗口与不确定性</li><li><b>有界采集</b> · 来自 Linux、Cilium、FRR、DNS 与 Gateway API</li><li><b>观测资源</b> · networking.advfab.org 下的版本化 CRD</li><li><b>受控变更</b> · 仅在明确授权时执行</li></ul></div><div class="panel other"><h3>留给原有系统</h3><ul><li><b>Kubernetes、Cilium、FRR</b> · 保留各自的生命周期与权威</li><li><b>路由器与 DNS 提供商</b> · 配置从不被接管</li><li><b>遥测存储</b> · 任意指标后端</li><li><b>Headlamp 客户端</b> · 独立安装、独立发布</li></ul></div></div>
+        </div>
+      </section>
+      <section class="section" id="install">
+        <div class="wrap install">
+          <div>
+            <div class="section-head"><p class="eyebrow">安装</p><h2>公开默认值全部关闭。</h2><p>Chart 不包含任何私有清单或凭据。用评审过的 values 文件开启观测；变更保持关闭。</p></div>
+            <ol class="steps"><li>把签名的 OCI Chart 安装到独立命名空间。</li><li>用评审过的 values 文件开启观测（applyEnabled: false）。</li><li>用 kubectl 或 Headlamp 插件查看评估结果。</li></ol>
+            <div class="actions"><a class="button" href="https://docs.advfab.org" rel="noopener">阅读文档 →</a></div>
+          </div>
+          <div class="code">
+            <div class="code-head"><span>install.sh</span><button class="copy" type="button" data-copy-target="code-advfab" data-copied="已复制">复制</button></div>
+            <pre id="code-advfab"><span class="c"># 安装（默认不开启观测）</span>
+helm upgrade --install advanced-fabric \
+  oci://ghcr.io/advanced-fabrics/charts/advanced-fabric \
+  --version 1.0.0-rc.14 \
+  --namespace advanced-fabric --create-namespace \
+  --values my-values.yaml
+
+<span class="c"># 查看证据</span>
+kubectl get advancedfabrics.networking.advfab.org
+kubectl get networkpathassessments.networking.advfab.org</pre>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="family">
+        <div class="wrap">
+          <div class="section-head"><p class="eyebrow">开源云产品家族</p><h2>三份可以组合的合约。</h2><p>AdvFab 生产路径证据，Public Edge 用它回答 DNS，Among Clusters 让集群互联而不共享密钥。RE8CH Cloud 以托管服务形式运行这三者。</p></div>
+          <div class="family">
+            <a href="https://advfab.org/zh-CN/" aria-current="page"><span class="fam-mark"><img src="/marks/advfab.svg" alt="" width="26" height="26"><b>AdvFab</b></span><p>Kubernetes 网络证据控制器。</p><small>开源</small></a>
+            <a href="https://public-edge.github.io/website/zh-CN/"><span class="fam-mark"><img src="/marks/public-edge.svg" alt="" width="26" height="26"><b>Public Edge</b></span><p>健康感知的公共入口与权威 DNS。</p><small>开源</small></a>
+            <a href="https://among-clusters.github.io/website/zh-CN/"><span class="fam-mark"><img src="/marks/among-clusters.svg" alt="" width="26" height="26"><b>Among Clusters</b></span><p>面向 BYOC 服务的主权集群互联。</p><small>开源</small></a>
+            <a href="https://cluster.re8ch.com/zh-CN/"><span class="fam-mark"><img src="https://brand-assets.re8ch.com/PRODUCTS/cluster/SVG/icon-no-edge.svg" alt="" width="26" height="26"><b>RE8CH Cloud</b></span><p>基于这些项目构建的托管集群网络。</p><small>托管</small></a>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap closing">
+          <div class="section-head"><h2>公开建设。</h2><p>AFEP 记录标准决策，一致性声明绑定不可变制品，发布附带签名、来源证明与 SBOM。AdvFab 独立治理，不是 CNCF 项目。</p></div>
+          <div class="actions"><a class="button primary" href="/wiki/">打开 Wiki</a><a class="button" href="https://github.com/advanced-fabrics/community" rel="noopener">治理</a><a class="button" href="https://github.com/orgs/advanced-fabrics/projects" rel="noopener">路线图</a></div>
+        </div>
+      </section>
+    </main>
+    <re8ch-footer locale="zh-CN" theme="light" language-options='[{"label":"English","value":"en","href":"/"},{"label":"简体中文","value":"zh-CN","href":"/zh-CN/"}]' language-mode="available" brand-logo="https://brand-assets.re8ch.com/SVG/logo.svg"></re8ch-footer>
+    </div>
+    <script type="application/json" id="site-copy">{"tierSpine":"Spine","tierLeaf":"Leaf","tierNode":"节点","states":{"ready":"就绪","partial":"部分","stale":"过期","unknown":"未知"},"linkLabel":"路径 {id}，{state}","stamp":"公开快照 · {time}","fields":{"id":"指纹","state":"状态","node":"节点","evidence":"路径证据 / 引用","observed":"观测时间"},"ready":"就绪","notReady":"未就绪","none":"—","gates":["能力","策略","RBAC","身份"],"joiner":"、","verdict":{"observeTitle":"仅观察","observe":"这条路径的状态是「{state}」。AdvFab 如实保留，不替它打分；受控变更需要同一范围内新鲜、完整的证据。","blockedTitle":"受控变更被拒绝","blocked":"安装本身从不授权变更。缺少：{missing}。","okTitle":"受控变更已授权","ok":"能力、策略、RBAC 与身份同时通过。变更后的结果会在同一范围内再次度量。"}}</script>
+    <script src="/fabric.js?v=20261023-oss-1" defer></script>
+  </body>
+</html>
